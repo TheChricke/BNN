@@ -1,8 +1,8 @@
 **Description and motivation for the model**
 
-If we make the network Bayesian, we make the weights W as random variable with a prior and posterior distribution.
-The goal is to model epistemic uncertainty ((model uncertainty) stems from lack of knowledge or data,
-which can be reduced by gathering more information or improving the model).
+Compared to a regular neural network where the weights are real numbers, in the bayesian neural network the weights W are treated as random variable with a prior and posterior distribution.
+The goal is to model epistemic uncertainty (model uncertainty) thatstems from lack of knowledge or data,
+which can be reduced by gathering more information or improving the model.
 In more simple terms, if the model has not had enough training data, or the model is not sufficiently deep,
 it should be able to say "I dont know", although it will be expressed as a probability distribution with high variance.
 When we run inference on the model, we sample the weights to get a distribution for the output. Low variance mean the model is certain.
@@ -14,7 +14,7 @@ and in other cases "I dont see any recognizable patterns here that I have seen b
 **Results**
 
 For stock market data the amount of aleatoric uncertainty(represents intrinsic randomness or noise in a system that cannot be reduced),
-in the data is overwhelming and making the bayesian neural network wuite useless. To be able to model epistemic uncertainty the intrinsic noise in the data would need to be reduced.
+in the data is overwhelming and making the bayesian neural network quite useless. To be able to model epistemic uncertainty the intrinsic noise in the data would need to be reduced.
 
 As we can see from the training results loss on the validation data the loss is barely decreasing after each epoch and increasing the neurons in the hidden layer from 8 to 56 
 doesnt improve the results at all. Could also be KL regularization is too strong, forcing the model toward uncertainty
