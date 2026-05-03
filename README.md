@@ -19,7 +19,7 @@ in the data is overwhelming and making the bayesian neural network wuite useless
 As we can see from the training results loss on the validation data the loss is barely decreasing after each epoch and increasing the neurons in the hidden layer from 8 to 56 
 doesnt improve the results at all. Could also be KL regularization is too strong, forcing the model toward uncertainty
 
-Training 1 hidden layer, 8 neurons
+```Training 1 hidden layer, 8 neurons
 Epoch 1/30  train_loss=0.529242  train_bce_sum=1649712.845  kl_sum=205087451.641  val_loss=0.524234
 Epoch 2/30  train_loss=0.522983  train_bce_sum=1630194.187  kl_sum=228611062.111  val_loss=0.517523
 Epoch 3/30  train_loss=0.516731  train_bce_sum=1610699.663  kl_sum=249966183.343  val_loss=0.511253
@@ -32,6 +32,7 @@ Epoch 2/5  train_loss=0.524881  train_bce_sum=1635667.545  kl_sum=1608410825.938
 Epoch 3/5  train_loss=0.520309  train_bce_sum=1621417.298  kl_sum=1606957994.141  val_loss=0.515928
 Epoch 4/5  train_loss=0.516312  train_bce_sum=1608957.166  kl_sum=1606505951.629  val_loss=0.513098
 Epoch 5/5  train_loss=0.513034  train_bce_sum=1598743.892  kl_sum=1597226269.820  val_loss=0.509503
+```
 
 Features used: ['close_price', 'volume', 'number_of_trades', 'ma_30', 'ma_2', 'vol_30']
 
@@ -43,20 +44,27 @@ Try decreasing KL regularization
 
 **Tech Stack**
 
+
 pip install pandas numpy scikit-learn torch
+
 sqlite database used for kline data
+
 python 3.9.0 used
+
 
 **Project Files**
 
 bnn.py --runs the bayesian neural network with the current model archiecture defined in BNNClassifier class
+
 create_binance_db.py --creates the sqlite databases and tables used for storing Binance data
+
 fetch_alpha_klines.py --appends time series data for all tokens with new data
+
 fetch_alpha_tokens.py --fetch all available tokens to fetch time series data for
 
 **Usage**
 
-Run python bnn.py (have to manually edit in BNNClassifier to change architecture)
+Run python bnn.py (have to manually edit in BNNClassifier to change architecture).
 It saves the .pt that can then be used
 
 The output of the model will give a mean and standard deviation for every output
